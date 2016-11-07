@@ -1,8 +1,8 @@
-use std::fmt::Display;
+use std::fmt::Debug;
 
 use colored::*;
 
-pub fn are_eq<T: Display + PartialEq>(left: Vec<T>, right: Vec<T>) {
+pub fn are_eq<T: Debug + PartialEq>(left: Vec<T>, right: Vec<T>) {
   fn compare<T: PartialEq>(left: &T, right: &T) -> (bool, String) {
     if left == right {
       (true, "ok".green().to_string())
@@ -20,7 +20,7 @@ pub fn are_eq<T: Display + PartialEq>(left: Vec<T>, right: Vec<T>) {
     for (l, r) in zipped {
       let (eq, compare_result) = compare(&l, &r);
       equal = equal && eq;
-      content.push_str(&format!("{}\t{}\t{}\n", l, r, compare_result));
+      content.push_str(&format!("{:?}\t{:?}\t{}\n", l, r, compare_result));
     }
     if !equal {
       panic!(::prettify(&content))
