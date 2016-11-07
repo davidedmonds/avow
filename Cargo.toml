@@ -2,5 +2,14 @@
 name = "avow"
 version = "0.1.0"
 authors = ["David Edmonds <edmonds.d.r@gmail.com>"]
+description = "A utility library primarily for test assertions."
+license = "MIT"
+keywords = ['assert', 'avow', 'testing', 'test']
+documentation = "https://docs.rs/avow"
+homepage = "https://docs.rs/avow"
+repository = "https://github.com/davidedmonds/avow"
+readme = "README.md"
 
 [dependencies]
+colored = "1.3.1"
+tabwriter = "0.1.25"
